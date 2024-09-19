@@ -65,7 +65,7 @@ export default {
       if (form.validate()) {
         // Implement your form submission logic (e.g., API call)
         axios
-          .post("http://localhost:1337/login", {
+          .post("https://sondage-server.vercel.app/login", {
             username: this.username,
             password: this.password,
           })

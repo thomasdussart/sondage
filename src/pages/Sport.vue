@@ -57,13 +57,13 @@ export default {
       if (this.currentQuestionIndex < this.questions.length - 1) {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("http://localhost:1337/questions-sport", {
+          axios.post("https://sondage-server.vercel.app/questions-sport", {
             reponse: this.currentQuestion.options[0],
           });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("http://localhost:1337/questions-sport", {
+          axios.post("https://sondage-server.vercel.app/questions-sport", {
             reponse: this.currentQuestion.options[1],
           });
         }
@@ -71,13 +71,13 @@ export default {
       } else {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("http://localhost:1337/questions-sport", {
+          axios.post("https://sondage-server.vercel.app/questions-sport", {
             reponse: this.currentQuestion.options[0],
           });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("http://localhost:1337/questions-sport", {
+          axios.post("https://sondage-server.vercel.app/questions-sport", {
             reponse: this.currentQuestion.options[1],
           });
         }

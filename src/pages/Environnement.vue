@@ -56,29 +56,41 @@ export default {
       if (this.currentQuestionIndex < this.questions.length - 1) {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("http://localhost:1337/questions-environnement", {
-            reponse: this.currentQuestion.options[0],
-          });
+          axios.post(
+            "https://sondage-server.vercel.app/questions-environnement",
+            {
+              reponse: this.currentQuestion.options[0],
+            }
+          );
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("http://localhost:1337/questions-environnement", {
-            reponse: this.currentQuestion.options[1],
-          });
+          axios.post(
+            "https://sondage-server.vercel.app/questions-environnement",
+            {
+              reponse: this.currentQuestion.options[1],
+            }
+          );
         }
         this.currentQuestionIndex++;
       } else {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("http://localhost:1337/questions-environnement", {
-            reponse: this.currentQuestion.options[0],
-          });
+          axios.post(
+            "https://sondage-server.vercel.app/questions-environnement",
+            {
+              reponse: this.currentQuestion.options[0],
+            }
+          );
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("http://localhost:1337/questions-environnement", {
-            reponse: this.currentQuestion.options[1],
-          });
+          axios.post(
+            "https://sondage-server.vercel.app/questions-environnement",
+            {
+              reponse: this.currentQuestion.options[1],
+            }
+          );
         }
         Swal.fire(
           "Merci",
