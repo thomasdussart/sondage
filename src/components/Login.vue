@@ -68,6 +68,10 @@ export default {
           .post("https://sondage-server.vercel.app/login", {
             username: this.username,
             password: this.password,
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
+            },
           })
           .then((response) => {
             localStorage.setItem("token", response.data.token);
