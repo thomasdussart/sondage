@@ -83,7 +83,6 @@ export default {
       }
     },
     forgotPassword() {
-      alert("Redirecting to forgot password page...");
       // Implement your password recovery logic
     },
   },
