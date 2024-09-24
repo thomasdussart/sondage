@@ -79,24 +79,51 @@ const handleCategoryClick = (category) => {
 
 const handleRestart = () => {
   let clickOrder = localStorage.getItem("completedCategories");
+
+  // Parse the clickOrder if it's stored as a JSON string
+  if (clickOrder) {
+    try {
+      clickOrder = JSON.parse(clickOrder); // Convert the string back to an array
+    } catch (error) {
+      console.error(
+        "Error parsing completedCategories from localStorage:",
+        error
+      );
+      return; // Stop execution if parsing fails
+    }
+  }
+
   console.log("Redémarrage du questionnaire", clickOrder);
-  axios
-    .post(
-      "https://sondage-server.vercel.app/data",
-      {
-        clickOrder: clickOrder,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
+
+  // Only send the POST request if clickOrder is valid (i.e., an array)
+  if (Array.isArray(clickOrder)) {
+    axios
+      .post(
+        "http://localhost:1337/data",
+        {
+          clickOrder: clickOrder,
         },
-      }
-    )
-    .then(() => {
-      console.log("Données envoyées au serveur");
-    });
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(() => {
+        console.log("Données envoyées au serveur");
+      })
+      .catch((error) => {
+        console.error("Error sending data to the server:", error);
+      });
+  } else {
+    console.error("Invalid clickOrder format, not sending to the server.");
+  }
+
+  // Clear localStorage and reset state
   localStorage.removeItem("completedCategories");
   completedCategories.value = [];
+
+  // Redirect to the home page
   window.location.href = "/";
 };
 

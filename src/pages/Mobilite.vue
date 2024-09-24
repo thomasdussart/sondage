@@ -39,7 +39,7 @@ export default {
         },
         {
           options: [
-            "Organiser une journée de sensibilisation à la sécurité routière avec des ateliers interactifs ",
+            "Organiser une journée de sensibilisation à la sécurité routière avec des ateliers interactifs",
             // prettier-ignore
             "Un challenge \"1 semaine sans voiture\" entre amis ou écoles, avec un prix pour ceux qui tiennent le plus longtemps",
           ],
@@ -58,37 +58,36 @@ export default {
       if (this.currentQuestionIndex < this.questions.length - 1) {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("https://sondage-server.vercel.app/questions-mobilite", {
+          axios.post("http://localhost:1337/questions", {
             reponse: this.currentQuestion.options[0],
+            category: "Mobilité",
           });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("https://sondage-server.vercel.app/questions-mobilite", {
+          axios.post("http://localhost:1337/questions", {
             reponse: this.currentQuestion.options[1],
+            category: "Mobilité",
           });
         }
         this.currentQuestionIndex++;
       } else {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("https://sondage-server.vercel.app/questions-mobilite", {
+          axios.post("http://localhost:1337/questions", {
             reponse: this.currentQuestion.options[0],
+            category: "Mobilité",
           });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("https://sondage-server.vercel.app/questions-mobilite", {
+          axios.post("http://localhost:1337/questions", {
             reponse: this.currentQuestion.options[1],
+            category: "Mobilité",
           });
         }
-        Swal.fire(
-          "Merci",
-          "Toutes les questions ont été répondues",
-          "success"
-        ).then(() => {
-          this.markCategoryComplete();
-        });
+
+        this.markCategoryComplete();
       }
     },
     markCategoryComplete() {

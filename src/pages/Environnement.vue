@@ -32,7 +32,8 @@ export default {
         },
         {
           options: [
-            "Lancer un défi “nettoyage du quartier” avec récompenses pour le groupe qui ramasse le plus de déchets",
+            //prettier-ignore
+            "Lancer un défi \"nettoyage du quartier\" avec récompenses pour le groupe qui ramasse le plus de déchets",
             "Organiser des ateliers de bricolage pour fabriquer des objets utiles à partir de matériaux recyclés",
           ],
         },
@@ -56,49 +57,36 @@ export default {
       if (this.currentQuestionIndex < this.questions.length - 1) {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post(
-            "https://sondage-server.vercel.app/questions-environnement",
-            {
-              reponse: this.currentQuestion.options[0],
-            }
-          );
+          axios.post("http://localhost:1337/questions", {
+            reponse: this.currentQuestion.options[0],
+            category: "Environnement",
+          });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post(
-            "https://sondage-server.vercel.app/questions-environnement",
-            {
-              reponse: this.currentQuestion.options[1],
-            }
-          );
+          axios.post("http://localhost:1337/questions", {
+            reponse: this.currentQuestion.options[1],
+            category: "Environnement",
+          });
         }
         this.currentQuestionIndex++;
       } else {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post(
-            "https://sondage-server.vercel.app/questions-environnement",
-            {
-              reponse: this.currentQuestion.options[0],
-            }
-          );
+          axios.post("http://localhost:1337/questions", {
+            reponse: this.currentQuestion.options[0],
+            category: "Environnement",
+          });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post(
-            "https://sondage-server.vercel.app/questions-environnement",
-            {
-              reponse: this.currentQuestion.options[1],
-            }
-          );
+          axios.post("http://localhost:1337/questions", {
+            reponse: this.currentQuestion.options[1],
+            category: "Environnement",
+          });
         }
-        Swal.fire(
-          "Merci",
-          "Toutes les questions ont été répondues",
-          "success"
-        ).then(() => {
-          this.markCategoryComplete();
-        });
+
+        this.markCategoryComplete();
       }
     },
     markCategoryComplete() {

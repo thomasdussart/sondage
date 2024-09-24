@@ -39,7 +39,8 @@ export default {
         {
           options: [
             "Organiser un concours de photographie autour de Hannut avec une exposition en plein air",
-            "Lancer des ateliers d'écriture pour créer un recueil d\’expression des jeunes ?",
+            //pretter-ignore
+            "Lancer des ateliers d'écriture pour créer un recueil d'expression des jeunes",
           ],
         },
       ],
@@ -56,37 +57,36 @@ export default {
       if (this.currentQuestionIndex < this.questions.length - 1) {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("https://sondage-server.vercel.app/questions-culture", {
+          axios.post("http://localhost:1337/questions", {
             reponse: this.currentQuestion.options[0],
+            category: "Culture",
           });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("https://sondage-server.vercel.app/questions-culture", {
+          axios.post("http://localhost:1337/questions", {
             reponse: this.currentQuestion.options[1],
+            category: "Culture",
           });
         }
         this.currentQuestionIndex++;
       } else {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("https://sondage-server.vercel.app/questions-culture", {
+          axios.post("http://localhost:1337/questions", {
             reponse: this.currentQuestion.options[0],
+            category: "Culture",
           });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("https://sondage-server.vercel.app/questions-culture", {
+          axios.post("http://localhost:1337/questions", {
             reponse: this.currentQuestion.options[1],
+            category: "Culture",
           });
         }
-        Swal.fire(
-          "Merci",
-          "Toutes les questions ont été répondues",
-          "success"
-        ).then(() => {
-          this.markCategoryComplete();
-        });
+
+        this.markCategoryComplete();
       }
     },
     markCategoryComplete() {
