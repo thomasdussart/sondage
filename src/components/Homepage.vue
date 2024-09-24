@@ -99,7 +99,7 @@ const handleRestart = () => {
   if (Array.isArray(clickOrder)) {
     axios
       .post(
-        "http://localhost:1337/data",
+        "https://sondage-server.vercel.app/data",
         {
           clickOrder: clickOrder,
         },

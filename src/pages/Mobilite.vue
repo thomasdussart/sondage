@@ -58,14 +58,14 @@ export default {
       if (this.currentQuestionIndex < this.questions.length - 1) {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("http://localhost:1337/questions", {
+          axios.post("https://sondage-server.vercel.app/questions", {
             reponse: this.currentQuestion.options[0],
             category: "Mobilité",
           });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("http://localhost:1337/questions", {
+          axios.post("https://sondage-server.vercel.app/questions", {
             reponse: this.currentQuestion.options[1],
             category: "Mobilité",
           });
@@ -74,14 +74,14 @@ export default {
       } else {
         if (index === 0) {
           console.log(this.currentQuestion.options[0]);
-          axios.post("http://localhost:1337/questions", {
+          axios.post("https://sondage-server.vercel.app/questions", {
             reponse: this.currentQuestion.options[0],
             category: "Mobilité",
           });
         }
         if (index === 1) {
           console.log(this.currentQuestion.options[1]);
-          axios.post("http://localhost:1337/questions", {
+          axios.post("https://sondage-server.vercel.app/questions", {
             reponse: this.currentQuestion.options[1],
             category: "Mobilité",
           });
