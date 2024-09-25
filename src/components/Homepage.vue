@@ -99,7 +99,7 @@ const handleRestart = () => {
   if (Array.isArray(clickOrder)) {
     axios
       .post(
-        "https://sondage-server.vercel.app/data",
+        "http://localhost:1337/data",
         {
           clickOrder: clickOrder,
         },
@@ -110,7 +110,11 @@ const handleRestart = () => {
         }
       )
       .then(() => {
-        console.log("Données envoyées au serveur");
+        localStorage.removeItem("completedCategories");
+        completedCategories.value = [];
+
+        // Redirect to the home page
+        window.location.href = "/";
       })
       .catch((error) => {
         console.error("Error sending data to the server:", error);
@@ -118,13 +122,6 @@ const handleRestart = () => {
   } else {
     console.error("Invalid clickOrder format, not sending to the server.");
   }
-
-  // Clear localStorage and reset state
-  localStorage.removeItem("completedCategories");
-  completedCategories.value = [];
-
-  // Redirect to the home page
-  window.location.href = "/";
 };
 
 // Récupérer les catégories complétées du localStorage
