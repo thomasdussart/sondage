@@ -28,7 +28,7 @@ export default {
         {
           options: [
             "Organiser une journée de sensibilisation à la marche avec une balade urbaine éducative",
-            "Organiser un atelier de fabrication de nichoirs pour oiseaux à placer dans les parcs locaux et la création de bombe à graines",
+            "Organiser un parcours découverte à vélo avec des étapes culturelles et historiques dans Hannut",
           ],
         },
         {
